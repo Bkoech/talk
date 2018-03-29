@@ -161,7 +161,7 @@ class ConversationRepository extends Repository
                     ->where('deleted_from_receiver', 0);
             });
 
-            $query->offset($offset)->take($take);
+            $query->latest()->offset($offset)->take($take);
 
         }])->with(['userone', 'usertwo'])->find($conversationId);
 
